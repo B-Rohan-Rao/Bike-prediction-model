@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Bikes Price Prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input, select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 14px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            background-color: #4cae4c;
+            color: whitesmoke;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 2px 8px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: whitesmoke;
+            background-color: #4cae4c;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 2px 8px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+        h3 {
+            margin-top: 20px;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="{{ url_for('predict') }}" method="post" id="formm">
+            <h2>Old Bikes Price Prediction</h2>
+            <p><b>Select your bike</b></p>
+            <select name="brand_name" id="fifth" required>
+                <option value="2">Royal Enfield</option>
+                <option value="10">KTM</option>
+                <option value="7">Bajaj</option>
+                <option value="15">Harley-Davidson</option>
+                <option value="4">Yamaha</option>
+                <option value="5">Honda</option>
+                <option value="8">Suzuki</option>
+                <option value="1">TVS</option>
+                <option value="12">Kawasaki</option>
+                <option value="14">Hyosung</option>
+                <option value="9">Benelli</option>
+                <option value="11">Mahindra</option>
+                <option value="3">Triumph</option>
+                <option value="13">Ducati</option>
+                <option value="6">Hero</option>
+                <option value="16">Jawa</option>
+                <option value="18">Indian</option>
+                <option value="19">Rajdoot</option>
+                <option value="20">LML</option>
+                <option value="21">Yezdi</option>
+                <option value="22">MV</option>
+                <option value="23">Ideal</option>
+            </select>
+            <p><b>What kms driven bike</b></p>
+            <input name="Kms_Driven" type="number" id="first" required>
+            <p><b>How many owners used this bike</b></p>
+            <input name="owner" type="number" id="second" required>
+            <p><b>How many years used this bike</b></p>
+            <input type="number" name="age" id="third" required>
+            <p><b>What is the power of bike (CC)</b></p>
+            <input type="number" name="power" id="forth" required>
+            <button type="submit" id="btn">CLICK ME</button>
+            <h3>Bike 🏍 price will be around 👉 {{ prediction_text }}</h3>
+        </form>
+        <a href="#" id="src">GET SOURCE CODE</a>
+    </div>
+</body>
+</html>
